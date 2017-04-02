@@ -4,10 +4,8 @@
 if [ -z "$1" ]
   then
     echo "No arguments supplied defaulting to all deployments"
-	DEPLOYMENTS=*/;
+  	DEPLOYMENTS=*/;
 fi
-
-# rm -r ./public
 
 # Loop through deployments
 for i in $DEPLOYMENTS
@@ -61,7 +59,5 @@ do
 	cd ..
 
 done
-
-# mkdir -p ./public
 
 tail -f /dev/null

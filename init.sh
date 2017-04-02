@@ -1,15 +1,21 @@
 #!/bin/sh
 
-# Remove docker existing containers
-cd laradock && docker-compose stop && docker-compose rm -f && cd ..
+read -p 'Remove containers (y/n): ' removeContainers
+read -p 'Which branch do you want to checkout (e.g. deploy): ' branch
+read -p 'Fetch deployment? (y/n): ' fetchDeployment
+read -p 'Fetch translations? (y/n): ' fetchTranslations
 
-# Set branch to passed parameter
-branch=$1
+# Remove docker existing containers
+if [ "$removeContainers" == "y" ]
+  then
+    echo "Removing containers..."
+    cd laradock && docker-compose stop && docker-compose rm -f && cd ..
+fi
 
 # If no branch is set then default to a specific branch
-if [ -z "$1" ]
+if [ "$branch" == "" ]
   then
-    echo "No arguments supplied defaulting to deploy branch"
+    echo "No branch selected defaulting to deploy branch..."
 	  branch="deploy"
 fi
 
@@ -46,27 +52,34 @@ do
 	echo "Copying config files - $i"
 	cp ./configs/$i/.env ./deployments/$i/
 
-	if true
-	  then
+  $branch_repo = $i
+
+  # if [ $branch_repo == 'xmovement' ]
+  #   then
+  #     read -p 'Which deployment are you workin on? (e.g. citylit): ' branchRepo
+  #     $branch_repo=branchRepo
+  # fi
+
+  if [ "$fetchDeployment" == "y" ]
+    then
 		# Create the deployment package dir and pull the branch with the same name as the site dir
-		echo "Fetching deployments repo - $i"
-		# rm -r $DEPLOYMENTS_WORK_TREE
+		echo "Fetching deployments repo - $branch_repo"
 		mkdir -p $DEPLOYMENTS_WORK_TREE
 		git --work-tree=$DEPLOYMENTS_WORK_TREE --git-dir=$DEPLOYMENTS_GIT_DIR config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 		git --work-tree=$DEPLOYMENTS_WORK_TREE --git-dir=$DEPLOYMENTS_GIT_DIR fetch --all
-		git --work-tree=$DEPLOYMENTS_WORK_TREE --git-dir=$DEPLOYMENTS_GIT_DIR checkout -f $i
-		git --work-tree=$DEPLOYMENTS_WORK_TREE --git-dir=$DEPLOYMENTS_GIT_DIR reset --hard origin/$i
+		git --work-tree=$DEPLOYMENTS_WORK_TREE --git-dir=$DEPLOYMENTS_GIT_DIR checkout -f $branch_repo
+		git --work-tree=$DEPLOYMENTS_WORK_TREE --git-dir=$DEPLOYMENTS_GIT_DIR reset --hard origin/$branch_repo
 	fi
 
-	if true
+	if [ "$fetchTranslations" == "y" ]
 	  then
 		# Create the lang dir and pull the branch with the same name as the site dir
-		echo "Fetching translations repo - $i"
+		echo "Fetching translations repo - $branch_repo"
 		mkdir -p $TRANSLATIONS_WORK_TREE/en
 		git --work-tree=$TRANSLATIONS_WORK_TREE --git-dir=$TRANSLATIONS_GIT_DIR config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 		git --work-tree=$TRANSLATIONS_WORK_TREE --git-dir=$TRANSLATIONS_GIT_DIR fetch --all
-		git --work-tree=$TRANSLATIONS_WORK_TREE --git-dir=$TRANSLATIONS_GIT_DIR checkout -f $i
-		git --work-tree=$TRANSLATIONS_WORK_TREE --git-dir=$TRANSLATIONS_GIT_DIR reset --hard origin/$i
+		git --work-tree=$TRANSLATIONS_WORK_TREE --git-dir=$TRANSLATIONS_GIT_DIR checkout -f $branch_repo
+		git --work-tree=$TRANSLATIONS_WORK_TREE --git-dir=$TRANSLATIONS_GIT_DIR reset --hard origin/$branch_repo
 	fi
 
 done
