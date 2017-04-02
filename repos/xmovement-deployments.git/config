@@ -1,0 +1,15 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = ssh://git@openlab.ncl.ac.uk:17150/edjenkins/xmovement-deployments.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "create4dementia"]
+	remote = origin
+	merge = refs/heads/create4dementia
+[branch "selfharmony"]
+	remote = origin
+	merge = refs/heads/selfharmony

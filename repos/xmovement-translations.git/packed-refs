@@ -1,0 +1,10 @@
+# pack-refs with: peeled fully-peeled 
+6fea46156576654a1f387cab2d1d36bf9f5b8d85 refs/heads/c4d
+90020f34b9ad82bf75c17aaa3f93b4c4a693b3aa refs/heads/citylit
+d180d48d9be19af614cde4fd8daae2bd513b0b6e refs/heads/demo
+aab5ad3c348924d26b7ffef0b7805bf952e4d0b2 refs/heads/eventmovement
+90020f34b9ad82bf75c17aaa3f93b4c4a693b3aa refs/heads/library
+2b4af985891c098840d8ff39c6695a33358cacd6 refs/heads/librarymovement
+c0b37c3a061f70afc89cdce490852abde624f871 refs/heads/master
+79d35dd43bdff9448a3ef606d7491bf794710cfe refs/heads/selfharm
+0bf31a2bd433997b1a4ccc6abb99d9b54d04aa69 refs/heads/ssc

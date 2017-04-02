@@ -1,0 +1,15 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = ssh://git@openlab.ncl.ac.uk:17150/edjenkins/xmovement.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "deploy"]
+	remote = origin
+	merge = refs/heads/deploy
+[branch "categories"]
+	remote = origin
+	merge = refs/heads/categories

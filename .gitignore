@@ -1,0 +1,14 @@
+configs/*
+!configs/.gitkeep
+
+data/*
+!data/.gitkeep
+
+deployments/*
+!deployments/.gitkeep
+
+xmovement
+!xmovement/.gitkeep
+
+.env
+log
