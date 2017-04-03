@@ -1,4 +1,4 @@
 [submodule "xmovement"]
 	path = xmovement
-	url = ssh://git@github.com:edjenkins/xmovement.git
+	url = https://github.com/edjenkins/xmovement.git
 	branch = deploy
