@@ -61,7 +61,7 @@ do
 		# Create the deployment package dir and pull the branch with the same name as the site dir
 		echo "Fetching deployments repo - $branch_repo"
 		mkdir -p $DEPLOYMENTS_WORK_TREE
-    git clone --depth=1 --branch=$branch git@github.com:edjenkins/xmovement-deployments.git $DEPLOYMENTS_WORK_TREE
+    git clone --depth=1 --branch=$branch_repo git@github.com:edjenkins/xmovement-deployments.git $DEPLOYMENTS_WORK_TREE
 
 		# git --work-tree=$DEPLOYMENTS_WORK_TREE --git-dir=$DEPLOYMENTS_GIT_DIR config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 		# git --work-tree=$DEPLOYMENTS_WORK_TREE --git-dir=$DEPLOYMENTS_GIT_DIR fetch --all
@@ -74,7 +74,7 @@ do
 		# Create the lang dir and pull the branch with the same name as the site dir
 		echo "Fetching translations repo - $branch_repo"
 		mkdir -p $TRANSLATIONS_WORK_TREE
-    git clone --depth=1 --branch=$branch git@github.com:edjenkins/xmovement-translations.git $TRANSLATIONS_WORK_TREE
+    git clone --depth=1 --branch=$branch_repo git@github.com:edjenkins/xmovement-translations.git $TRANSLATIONS_WORK_TREE
 
 		# git --work-tree=$TRANSLATIONS_WORK_TREE --git-dir=$TRANSLATIONS_GIT_DIR config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 		# git --work-tree=$TRANSLATIONS_WORK_TREE --git-dir=$TRANSLATIONS_GIT_DIR fetch --all
