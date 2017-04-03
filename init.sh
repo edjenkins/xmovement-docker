@@ -6,14 +6,14 @@ read -p 'Fetch deployment? (y/n): ' fetchDeployment
 read -p 'Fetch translations? (y/n): ' fetchTranslations
 
 # Remove docker existing containers
-if [ "$removeContainers" == "y" ]
+if [ "$removeContainers" = "y" ]
   then
     echo "Removing containers..."
     cd laradock && docker-compose stop && docker-compose rm -f && cd ..
 fi
 
 # If no branch is set then default to a specific branch
-if [ "$branch" == "" ]
+if [ "$branch" = "" ]
   then
     echo "No branch selected defaulting to deploy branch..."
 	  branch="deploy"
@@ -54,13 +54,13 @@ do
 
   $branch_repo = $i
 
-  # if [ $branch_repo == 'xmovement' ]
+  # if [ $branch_repo = 'xmovement' ]
   #   then
   #     read -p 'Which deployment are you workin on? (e.g. citylit): ' branchRepo
   #     $branch_repo=branchRepo
   # fi
 
-  if [ "$fetchDeployment" == "y" ]
+  if [ "$fetchDeployment" = "y" ]
     then
 		# Create the deployment package dir and pull the branch with the same name as the site dir
 		echo "Fetching deployments repo - $branch_repo"
@@ -71,7 +71,7 @@ do
 		git --work-tree=$DEPLOYMENTS_WORK_TREE --git-dir=$DEPLOYMENTS_GIT_DIR reset --hard origin/$branch_repo
 	fi
 
-	if [ "$fetchTranslations" == "y" ]
+	if [ "$fetchTranslations" = "y" ]
 	  then
 		# Create the lang dir and pull the branch with the same name as the site dir
 		echo "Fetching translations repo - $branch_repo"
