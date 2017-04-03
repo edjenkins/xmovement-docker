@@ -54,32 +54,30 @@ do
 	echo "Copying config files - $i"
 	cp ./configs/$i/.env ./deployments/$i/
 
-  $branch_repo = $i
-
   if [ "$fetchDeployment" = "y" ]
     then
 		# Create the deployment package dir and pull the branch with the same name as the site dir
-		echo "Fetching deployments repo - $branch_repo"
+		echo "Fetching deployments repo - $i"
 		mkdir -p $DEPLOYMENTS_WORK_TREE
-    git clone --depth=1 --branch=$branch_repo git@github.com:edjenkins/xmovement-deployments.git $DEPLOYMENTS_WORK_TREE
+    git clone --depth=1 --branch=$i git@github.com:edjenkins/xmovement-deployments.git $DEPLOYMENTS_WORK_TREE
 
 		# git --work-tree=$DEPLOYMENTS_WORK_TREE --git-dir=$DEPLOYMENTS_GIT_DIR config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 		# git --work-tree=$DEPLOYMENTS_WORK_TREE --git-dir=$DEPLOYMENTS_GIT_DIR fetch --all
-		# git --work-tree=$DEPLOYMENTS_WORK_TREE --git-dir=$DEPLOYMENTS_GIT_DIR checkout -f $branch_repo
-		# git --work-tree=$DEPLOYMENTS_WORK_TREE --git-dir=$DEPLOYMENTS_GIT_DIR reset --hard origin/$branch_repo
+		# git --work-tree=$DEPLOYMENTS_WORK_TREE --git-dir=$DEPLOYMENTS_GIT_DIR checkout -f $i
+		# git --work-tree=$DEPLOYMENTS_WORK_TREE --git-dir=$DEPLOYMENTS_GIT_DIR reset --hard origin/$i
 	fi
 
 	if [ "$fetchTranslations" = "y" ]
 	  then
 		# Create the lang dir and pull the branch with the same name as the site dir
-		echo "Fetching translations repo - $branch_repo"
+		echo "Fetching translations repo - $i"
 		mkdir -p $TRANSLATIONS_WORK_TREE
-    git clone --depth=1 --branch=$branch_repo git@github.com:edjenkins/xmovement-translations.git $TRANSLATIONS_WORK_TREE
+    git clone --depth=1 --branch=$i git@github.com:edjenkins/xmovement-translations.git $TRANSLATIONS_WORK_TREE
 
 		# git --work-tree=$TRANSLATIONS_WORK_TREE --git-dir=$TRANSLATIONS_GIT_DIR config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 		# git --work-tree=$TRANSLATIONS_WORK_TREE --git-dir=$TRANSLATIONS_GIT_DIR fetch --all
-		# git --work-tree=$TRANSLATIONS_WORK_TREE --git-dir=$TRANSLATIONS_GIT_DIR checkout -f $branch_repo
-		# git --work-tree=$TRANSLATIONS_WORK_TREE --git-dir=$TRANSLATIONS_GIT_DIR reset --hard origin/$branch_repo
+		# git --work-tree=$TRANSLATIONS_WORK_TREE --git-dir=$TRANSLATIONS_GIT_DIR checkout -f $i
+		# git --work-tree=$TRANSLATIONS_WORK_TREE --git-dir=$TRANSLATIONS_GIT_DIR reset --hard origin/$i
 	fi
 
 done
