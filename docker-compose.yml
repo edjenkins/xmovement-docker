@@ -41,6 +41,8 @@ services:
           - "dockerhost:${DOCKER_HOST_IP}"
       ports:
          - "${WORKSPACE_SSH_PORT}:22"
+      depends_on:
+         - mysql
       entrypoint:
         - /var/www/init-post.sh
       tty: true
