@@ -38,8 +38,8 @@ services:
         - applications
       extra_hosts:
           - "dockerhost:${DOCKER_HOST_IP}"
-      ports:
-         - "${WORKSPACE_SSH_PORT}:22"
+      # ports:
+      #    - "${WORKSPACE_SSH_PORT}:22"
       entrypoint:
         - /var/www/init-post.sh
       tty: true
@@ -248,8 +248,8 @@ services:
       build: ./laradock/redis
       volumes:
         - redis:/data
-      ports:
-        - "6379:6379"
+      # ports:
+      #   - "6379:6379"
 
 ### Aerospike c Container ###################################
 
