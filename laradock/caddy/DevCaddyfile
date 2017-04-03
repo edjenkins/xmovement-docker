@@ -1,0 +1,254 @@
+gateway.local:80 {
+	root /var/www/gateway
+	tls off
+	## start of new
+	proxy /Shibboleth.sso apache2:8080 {
+		#insecure_skip_verify
+		transparent
+	}
+	## end of new
+    proxy / apache2:8080 {
+		#insecure_skip_verify
+		transparent
+	}
+	fastcgi / php-fpm:9000 php {
+		except /Shibboleth.sso
+		index shibboleth.php
+	}
+	log /var/log/caddy/access.log
+	errors /var/log/caddy/error.log
+}
+
+xm.local:80 {
+
+	root /var/www/xmovement/public
+	tls off
+
+	proxy /wss/ workspace:8090 {
+		transparent
+		websocket
+	}
+
+	fastcgi / php-fpm:9000 php {
+		except /wss
+		index index.php
+	}
+
+	rewrite {
+		if {path} not_has /wss
+		r .*
+		ext /
+		to /index.php?{query}
+	}
+
+	log /var/log/caddy/access.log
+	errors /var/log/caddy/error.log
+}
+
+master.local:80 {
+
+	root /var/www/master/public
+	tls off
+
+	proxy /wss/ workspace:8090 {
+		transparent
+		websocket
+	}
+
+	fastcgi / php-fpm:9000 php {
+		except /wss
+		index index.php
+	}
+
+	rewrite {
+		if {path} not_has /wss
+		r .*
+		ext /
+		to /index.php?{query}
+	}
+
+	log /var/log/caddy/access.log
+	errors /var/log/caddy/error.log
+}
+
+demo.local:80 {
+
+	root /var/www/demo/public
+	tls off
+
+	proxy /wss/ workspace:8091 {
+		transparent
+		websocket
+	}
+
+	fastcgi / php-fpm:9000 php {
+		except /wss
+		index index.php
+	}
+
+	rewrite {
+		if {path} not_has /wss
+		r .*
+		ext /
+		to /index.php?{query}
+	}
+
+	log /var/log/caddy/access.log
+	errors /var/log/caddy/error.log
+}
+
+library.local:80 {
+
+	root /var/www/library/public
+	tls off
+
+	proxy /wss/ workspace:8092 {
+		transparent
+		websocket
+	}
+
+	fastcgi / php-fpm:9000 php {
+		except /wss
+		index index.php
+	}
+
+	rewrite {
+		if {path} not_has /wss
+		r .*
+		ext /
+		to /index.php?{query}
+	}
+
+	log /var/log/caddy/access.log
+	errors /var/log/caddy/error.log
+}
+
+ssc.local:80 {
+
+	root /var/www/ssc/public
+	tls off
+
+	proxy /wss/ workspace:8093 {
+		transparent
+		websocket
+	}
+
+	fastcgi / php-fpm:9000 php {
+		except /wss
+		index index.php
+	}
+
+	rewrite {
+		if {path} not_has /wss
+		r .*
+		ext /
+		to /index.php?{query}
+	}
+
+	log /var/log/caddy/access.log
+	errors /var/log/caddy/error.log
+}
+
+citylit.local:80 {
+
+	root /var/www/citylit/public
+	tls off
+
+	proxy /wss/ workspace:8094 {
+		transparent
+		websocket
+	}
+
+	fastcgi / php-fpm:9000 php {
+		except /wss
+		index index.php
+	}
+
+	rewrite {
+		if {path} not_has /wss
+		r .*
+		ext /
+		to /index.php?{query}
+	}
+
+	log /var/log/caddy/access.log
+	errors /var/log/caddy/error.log
+}
+
+launchspot.local:80 {
+
+	root /var/www/launchspot/public
+	tls off
+
+	proxy /wss/ workspace:8095 {
+		transparent
+		websocket
+	}
+
+	fastcgi / php-fpm:9000 php {
+		except /wss
+		index index.php
+	}
+
+	rewrite {
+		if {path} not_has /wss
+		r .*
+		ext /
+		to /index.php?{query}
+	}
+
+	log /var/log/caddy/access.log
+	errors /var/log/caddy/error.log
+}
+
+selfharmony.local:80 {
+
+	root /var/www/selfharmony/public
+	tls off
+
+	proxy /wss/ workspace:8095 {
+		transparent
+		websocket
+	}
+
+	fastcgi / php-fpm:9000 php {
+		except /wss
+		index index.php
+	}
+
+	rewrite {
+		if {path} not_has /wss
+		r .*
+		ext /
+		to /index.php?{query}
+	}
+
+	log /var/log/caddy/access.log
+	errors /var/log/caddy/error.log
+}
+
+create4dementia.local:80 {
+
+	root /var/www/create4dementia/public
+	tls off
+
+	proxy /wss/ workspace:8096 {
+		transparent
+		websocket
+	}
+
+	fastcgi / php-fpm:9000 php {
+		except /wss
+		index index.php
+	}
+
+	rewrite {
+		if {path} not_has /wss
+		r .*
+		ext /
+		to /index.php?{query}
+	}
+
+	log /var/log/caddy/access.log
+	errors /var/log/caddy/error.log
+}

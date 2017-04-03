@@ -1,0 +1,126 @@
+// XMStyles
+
+.profile-header
+	background-color main-color
+	background-position center
+	background-repeat no-repeat
+	background-size cover
+	height 120px
+	@media(min-width: $screen-sm-min)
+		height 0px
+		max-height 300px
+		padding-bottom 15%
+
+h2.user-name
+	color #444
+	font-size 40px
+	font-weight 300
+	margin 0
+	padding 0
+	word-break break-word
+
+.profile-side-column
+	padding 20px
+	text-align center
+	@media(min-width: $screen-sm-min)
+		text-align left
+	.avatar-wrapper
+		position relative
+		top -100px
+		margin-bottom -80px
+		text-align center
+		@media(min-width: $screen-sm-min)
+			top -100px
+		.avatar
+			background-color border-color
+			background-size cover
+			background-position center
+			background-repeat no-repeat
+			border white 4px solid
+			border-radius 50%
+			margin 0 auto
+			height 140px
+			width 140px
+			@media(min-width: $screen-sm-min)
+				height 180px
+				width 180px
+	.contact-button, .quote-button
+		background-color white
+		border #e1e1e1 1px solid
+		border-radius 4px
+		color #ccc
+		display block
+		font-size 16px
+		margin 20px auto
+		max-width 250px
+		padding 12px 20px
+		text-align center
+		width 100%
+		animate()
+		&:hover
+			background main-color
+			border main-color 1px solid
+			color white
+			cursor pointer
+
+.profile-main-column
+	margin-bottom 20px
+	padding 20px
+	@media(max-width: $screen-sm-max)
+		border-top border-color 1px solid
+	@media(min-width: $screen-sm-min)
+		padding 30px 15px
+	p.user-bio
+		border-left main-color 4px solid
+		margin 20px 0
+		padding 15px 20px
+		word-break break-word
+	.tab-content
+		.tab-pane
+			background white
+			border border-color 1px solid
+			border-top none
+			padding 20px
+			&#upload
+				border-top border-color 1px solid
+			.no-content
+				padding 100px 40px
+				text-align center
+				h3
+					color #ccc
+					font-weight normal
+					margin 0
+					padding 0
+			ul.news-feed
+				list-style none
+				margin 0
+				padding 10px 0
+				li
+					background #f2f2f2
+					height 200px
+					list-style none
+					margin 0 0 20px 0
+					padding 0
+
+.sidebar-section
+	padding 10px 0
+	.sidebar-section-header
+		color #999
+		font-size 18px
+		i.fa-circle
+			color main-color
+		i.fa-thumbs-up
+			color white
+	.ideas-list
+		color #ccc
+		list-style none
+		margin 10px 0
+		padding 0
+		li
+			word-wrap break-word
+
+// Direct Message Modal
+
+#direct-message-modal
+	textarea
+		margin 15px auto

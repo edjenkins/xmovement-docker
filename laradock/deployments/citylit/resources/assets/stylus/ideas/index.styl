@@ -1,0 +1,91 @@
+// XMStyles
+
+.coming-soon-container
+	color white
+	padding 60px 40px
+	text-align center
+	img
+		margin-bottom 40px
+		height 120px
+	h1
+		color white
+		margin 0 auto
+		padding 0
+	h5
+		color white
+		font-size 18px
+		margin 15px auto 0 auto
+		max-width 500px
+
+.ideas-container
+	margin-top 15px
+	@media(max-width: $screen-sm-max)
+		margin-top 0
+
+.module-control.search-element
+	height 60px
+	position relative
+	width 40px
+	.search-bar
+		display none
+		input
+			border none
+			height 36px
+			line-height 36px
+			margin 12px 0
+			padding 0
+			outline 0
+			position absolute
+			right 0
+			width 150px
+			&:active
+				outline 0
+	#search-button
+		margin 10px 0
+		height 40px
+		line-height 40px
+		position absolute
+		left 0
+		text-align center
+		width 40px
+		i
+			color #CCC
+			animate()
+		&:hover
+			cursor pointer
+			i
+				color darken(#CCC, 10%)
+	&.open
+		width 190px
+		.search-bar
+			display block
+
+@media(max-width: $screen-sm-max)
+	.module-controls
+		.module-control.search-element
+			&.open
+				border-top border-color 1px solid
+				width 100%
+				.search-bar
+					display block
+					input
+						width calc(100% - 40px)
+
+.no-results
+	color #CCC
+	font-size 20px
+	line-height 200px
+	text-align center
+
+.shortlist-info-box
+	background-color border-color
+	background-color main-color
+	border-bottom-left-radius 6px
+	border-bottom-right-radius 6px
+	margin 0
+	padding 12px 18px
+	p
+		color #666
+		color white
+		margin 0
+		padding 0
