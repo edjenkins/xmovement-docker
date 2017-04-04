@@ -24,13 +24,7 @@ xm.local:80 {
 	root /var/www/xmovement/public
 	tls off
 
-	proxy /wss/ workspace:8090 {
-		transparent
-		websocket
-	}
-
 	fastcgi / php-fpm:9000 php {
-		except /wss
 		index index.php
 	}
 
@@ -50,13 +44,7 @@ master.local:80 {
 	root /var/www/master/public
 	tls off
 
-	proxy /wss/ workspace:8090 {
-		transparent
-		websocket
-	}
-
 	fastcgi / php-fpm:9000 php {
-		except /wss
 		index index.php
 	}
 
@@ -76,13 +64,7 @@ demo.local:80 {
 	root /var/www/demo/public
 	tls off
 
-	proxy /wss/ workspace:8091 {
-		transparent
-		websocket
-	}
-
 	fastcgi / php-fpm:9000 php {
-		except /wss
 		index index.php
 	}
 
@@ -102,13 +84,7 @@ library.local:80 {
 	root /var/www/library/public
 	tls off
 
-	proxy /wss/ workspace:8092 {
-		transparent
-		websocket
-	}
-
 	fastcgi / php-fpm:9000 php {
-		except /wss
 		index index.php
 	}
 
@@ -128,13 +104,7 @@ ssc.local:80 {
 	root /var/www/ssc/public
 	tls off
 
-	proxy /wss/ workspace:8093 {
-		transparent
-		websocket
-	}
-
 	fastcgi / php-fpm:9000 php {
-		except /wss
 		index index.php
 	}
 
@@ -154,13 +124,7 @@ citylit.local:80 {
 	root /var/www/citylit/public
 	tls off
 
-	proxy /wss/ workspace:8094 {
-		transparent
-		websocket
-	}
-
 	fastcgi / php-fpm:9000 php {
-		except /wss
 		index index.php
 	}
 
@@ -180,13 +144,7 @@ launchspot.local:80 {
 	root /var/www/launchspot/public
 	tls off
 
-	proxy /wss/ workspace:8095 {
-		transparent
-		websocket
-	}
-
 	fastcgi / php-fpm:9000 php {
-		except /wss
 		index index.php
 	}
 
@@ -206,13 +164,7 @@ selfharmony.local:80 {
 	root /var/www/selfharmony/public
 	tls off
 
-	proxy /wss/ workspace:8095 {
-		transparent
-		websocket
-	}
-
 	fastcgi / php-fpm:9000 php {
-		except /wss
 		index index.php
 	}
 
@@ -232,13 +184,7 @@ create4dementia.local:80 {
 	root /var/www/create4dementia/public
 	tls off
 
-	proxy /wss/ workspace:8096 {
-		transparent
-		websocket
-	}
-
 	fastcgi / php-fpm:9000 php {
-		except /wss
 		index index.php
 	}
 
