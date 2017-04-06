@@ -9,8 +9,8 @@ read -p 'Remove containers (y/n): ' removeContainers
 if [ "$removeContainers" = "y" ] || [ "$removeContainers" = "" ]
   then
     echo "Removing containers..."
-    docker-compose stop
-    docker-compose rm -f
+    docker-compose stop workspace
+    docker-compose rm -f workspace
 fi
 
 # If no branch is set then default to a specific branch
@@ -21,13 +21,13 @@ if [ "$branch" = "" ]
 fi
 
 # Remove all existing sites files from the workspace
-rm -rf ./deployments/*
+# rm -rf ./deployments/*
 
 # Copy required init scrips
 cp ./scripts/* ./deployments
 
 # Loop through sites
-for i in "citylit" "ssc"
+for i in "ssc" "citylit"
 do
 	# Make the site dir if it doesn't already exist
 	mkdir -p ./deployments/$i
@@ -63,7 +63,13 @@ do
 
 done
 
-# Rebuild and launch docker containers
-docker-compose build # --no-cache
-docker-compose up -d
+if [ "$removeContainers" = "y" ] || [ "$removeContainers" = "" ]
+  then
+    # Rebuild and launch docker containers
+    docker-compose build # --no-cache
+    docker-compose up -d
+  else
+    docker-compose up -d
+fi
+
 docker-compose logs -f --tail 100 workspace

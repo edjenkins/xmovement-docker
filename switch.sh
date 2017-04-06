@@ -2,12 +2,15 @@
 
 read -p 'Please enter the name of the deployment you wish to work on (e.g. citylit): ' deployment
 
+rm -rf xmovement/resources/assets/stylus/deployment/*
+rm -rf xmovement/resources/views/deployment/*
+
 cd xmovement/resources/lang
 
-git checkout origin $deployment
+git checkout $deployment
 
 cd ../../packages/deployment
 
-git checkout origin $deployment
+git checkout $deployment
 
 cd ../../../

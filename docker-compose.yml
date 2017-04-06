@@ -37,6 +37,10 @@ services:
           - TZ=${WORKSPACE_TIMEZONE}
       volumes_from:
         - applications
+      volumes:
+        - /tmp/bower_components
+        - /tmp/node_modules
+        - /tmp/vendor
       extra_hosts:
           - "dockerhost:${DOCKER_HOST_IP}"
       ports:

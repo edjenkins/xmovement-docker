@@ -27,11 +27,14 @@ do
 
 	# Copy cached dependencies into site dir
 	echo "Copying vendor files for $i";
-	rm -rf /var/www/$i/vendor && cp -aur /tmp/vendor ./ # ln -s /tmp/vendor /var/www/$i/vendor
-	echo "Copying node_modules for $i";
-	rm -rf /var/www/$i/node_modules && cp -aur /tmp/node_modules ./ # ln -s /tmp/node_modules /var/www/$i/node_modules
-	echo "Copying bower_components for $i";
-	rm -rf /var/www/$i/bower_components && cp -aur /tmp/bower_components ./ # ln -s /tmp/bower_components /var/www/$i/bower_components
+  # rm -rf /var/www/$i/vendor &&
+  rsync -auz --progress /tmp/vendor ./ #ln -s /tmp/vendor /var/www/$i/vendor
+	echo "Linking node_modules for $i";
+  rm -rf /var/www/$i/node_modules
+  ln -s /tmp/node_modules /var/www/$i/node_modules # cp -r /tmp/node_modules ./ #ln -s /tmp/node_modules /var/www/$i/node_modules
+	echo "Linking bower_components for $i";
+  rm -rf /var/www/$i/bower_components
+  ln -s /tmp/bower_components /var/www/$i/bower_components # cp -r /tmp/bower_components ./ #ln -s /tmp/bower_components /var/www/$i/bower_components
 
 	# Composer
 	echo "Composer tasks for $i";
