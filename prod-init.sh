@@ -27,7 +27,7 @@ rm -rf ./deployments/*
 cp ./scripts/* ./deployments
 
 # Loop through sites
-for i in "citylit" "ssc"
+for i in "citylit" # "ssc"
 do
 	# Make the site dir if it doesn't already exist
 	mkdir -p ./deployments/$i
