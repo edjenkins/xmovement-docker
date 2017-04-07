@@ -21,7 +21,7 @@ ssc.eventmovement.co.uk {
 create.eventmovement.co.uk {
 
 	root /var/www/citylit/public
-	tls citylit@eventmovement.co.uk
+	tls create@eventmovement.co.uk
 
 	fastcgi / php-fpm:9000 php {
 		index index.php
