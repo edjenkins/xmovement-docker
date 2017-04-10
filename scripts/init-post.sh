@@ -44,11 +44,12 @@ do
 	# Artisan commands
 	php artisan migrate --force
 	php artisan db:seed --force --class=DynamicConfigSeeder
-    php artisan db:seed --force --class=DesignModulesTableSeeder
+  php artisan db:seed --force --class=DesignModulesTableSeeder
 	php artisan vendor:publish --force
 	# php artisan translate:import
 	php artisan translate:export
 	php artisan cache:clear
+  php artisan queue:restart
 
 	# Install new dependencies
 	# npm install
