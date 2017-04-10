@@ -52,6 +52,7 @@ do
   php artisan queue:restart
 
   # Setup cron
+  crontab /etc/cron.d/root
   /etc/init.d/cron reload
   /etc/init.d/cron start
 
