@@ -40,20 +40,8 @@ create.eventmovement.co.uk {
 
 citylit.eventmovement.co.uk {
 
-	root /var/www/citylit/public
-	tls citylit@eventmovement.co.uk
+        redir https://create.eventmovement.co.uk
 
-	fastcgi / php-fpm:9000 php {
-		index index.php
-	}
-
-	rewrite {
-		if {path} not_has /wss
-		r .*
-		ext /
-		to /index.php?{query}
-	}
-
-	log /var/log/caddy/access.log
-	errors /var/log/caddy/error.log
+        log /var/log/caddy/access.log
+        errors /var/log/caddy/error.log
 }
