@@ -49,6 +49,7 @@ do
 	# php artisan translate:import
 	php artisan translate:export
 	php artisan cache:clear
+  php artisan queue:restart
 
   # Setup cron
   /etc/init.d/cron reload
