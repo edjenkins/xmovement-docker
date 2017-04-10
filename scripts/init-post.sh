@@ -28,7 +28,7 @@ do
 	# Copy cached dependencies into site dir
 	echo "Copying vendor files for $i";
   # rm -rf /var/www/$i/vendor &&
-  rsync -auz --progress /tmp/vendor ./ #ln -s /tmp/vendor /var/www/$i/vendor
+  rsync -auz /tmp/vendor ./ #ln -s /tmp/vendor /var/www/$i/vendor
 	echo "Linking node_modules for $i";
   rm -rf /var/www/$i/node_modules
   ln -s /tmp/node_modules /var/www/$i/node_modules # cp -r /tmp/node_modules ./ #ln -s /tmp/node_modules /var/www/$i/node_modules
