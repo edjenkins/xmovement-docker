@@ -1,0 +1,4 @@
+* * * * * php /var/www/citylit/artisan schedule:run >> /dev/null 2>&1
+
+# Custom cron
+# * * * * * root echo "Every Minute" > /var/log/cron.log 2>&1

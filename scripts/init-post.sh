@@ -52,6 +52,12 @@ do
   php artisan queue:restart
   php artisan cache:clear
 
+  # Setup cron
+  crontab /etc/cron.d/root
+  /etc/init.d/cron reload
+  /etc/init.d/cron start
+
+
 	# Install new dependencies
 	# npm install
 	# bower install --allow-root
