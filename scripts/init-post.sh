@@ -50,6 +50,7 @@ do
 	php artisan translate:export
 	php artisan cache:clear
   php artisan queue:restart
+  php artisan cache:clear
 
 	# Install new dependencies
 	# npm install
