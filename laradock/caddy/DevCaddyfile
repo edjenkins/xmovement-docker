@@ -198,3 +198,23 @@ create4dementia.local:80 {
 	log /var/log/caddy/access.log
 	errors /var/log/caddy/error.log
 }
+
+stanley.local:80 {
+
+	root /var/www/stanley/public
+	tls off
+
+	fastcgi / php-fpm:9000 php {
+		index index.php
+	}
+
+	rewrite {
+		if {path} not_has /wss
+		r .*
+		ext /
+		to /index.php?{query}
+	}
+
+	log /var/log/caddy/access.log
+	errors /var/log/caddy/error.log
+}

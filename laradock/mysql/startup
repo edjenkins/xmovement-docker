@@ -36,3 +36,6 @@ GRANT ALL ON `create4dementia`.* TO 'MYSQL_USER'@'%';
 
 CREATE DATABASE IF NOT EXISTS `selfharmony`;
 GRANT ALL ON `selfharmony`.* TO 'MYSQL_USER'@'%';
+
+CREATE DATABASE IF NOT EXISTS `stanley`;
+GRANT ALL ON `stanley`.* TO 'MYSQL_USER'@'%';
