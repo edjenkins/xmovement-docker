@@ -1,6 +1,6 @@
 #!/bin/sh
 
-read -p 'Which branch do you want to checkout (e.g. deploy): ' branch
+read -p 'Which branch do you want to checkout (e.g. release): ' branch
 read -p 'Fetch deployment? (y/n): ' fetchDeployment
 read -p 'Fetch translations? (y/n): ' fetchTranslations
 read -p 'Remove containers (y/n): ' removeContainers
@@ -16,8 +16,8 @@ fi
 # If no branch is set then default to a specific branch
 if [ "$branch" = "" ]
   then
-    echo "No branch selected defaulting to deploy branch..."
-	  branch="deploy"
+    echo "No branch selected defaulting to `release` branch..."
+	  branch="release"
 fi
 
 # Remove all existing sites files from the workspace
@@ -27,7 +27,7 @@ fi
 cp ./scripts/* ./deployments
 
 # Loop through sites
-for i in "master" "create4dementia" "stanley" # "ssc" "citylit"
+for i in #"master" "create4dementia" "stanley" # "ssc" "citylit"
 do
 	# Make the site dir if it doesn't already exist
 	mkdir -p ./deployments/$i
