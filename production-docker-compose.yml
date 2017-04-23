@@ -43,7 +43,7 @@ services:
       depends_on:
         - mysql
       entrypoint:
-        - /var/www/init-post.sh
+        - /var/www/update.sh
       tty: true
 
 ### PHP-FPM Container #######################################
