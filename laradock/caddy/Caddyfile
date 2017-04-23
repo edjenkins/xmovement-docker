@@ -105,3 +105,54 @@ citylit.eventmovement.co.uk {
         log /var/log/caddy/access.log
         errors /var/log/caddy/error.log
 }
+
+create4dementia.launchspot.co.uk {
+
+	root /var/www/create4dementia/public
+	tls create4dementia@launchspot.co.uk
+
+	proxy /wss/ workspace:8096 {
+		transparent
+		websocket
+	}
+
+	fastcgi / php-fpm:9000 php {
+		except /wss
+		index index.php
+	}
+
+	rewrite {
+		if {path} not_has /wss
+		r .*
+		ext /
+		to /index.php?{query}
+	}
+
+	log /var/log/caddy/access.log
+	errors /var/log/caddy/error.log
+}
+
+www.create4dementia.co.uk {
+
+	redir https://create4dementia.launchspot.co.uk
+}
+
+create4dementia.co.uk {
+
+	redir https://create4dementia.launchspot.co.uk?s=new
+}
+
+c4d.launchspot.co.uk {
+
+	redir https://create4dementia.launchspot.co.uk{uri}
+}
+
+www.launchspot.co.uk {
+
+	redir https://launchspot.co.uk{uri}
+}
+
+launchspot.co.uk {
+
+	redir https://create4dementia.launchspot.co.uk{uri}
+}
