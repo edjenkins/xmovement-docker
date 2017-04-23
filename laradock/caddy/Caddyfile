@@ -58,7 +58,7 @@ ssc.eventmovement.co.uk {
 	errors /var/log/caddy/error.log
 }
 
-master.eventmovement.co.uk {
+eventmovement.co.uk {
 
 	root /var/www/master/public
 	tls info@eventmovement.co.uk
