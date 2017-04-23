@@ -32,7 +32,7 @@ fi
 cp ./scripts/* ./deployments
 
 # Loop through sites
-for i in "master" "citylit" "create4dementia" "stanley" # "ssc"
+for i in "master" "citylit" "create4dementia" "stanley" "ssc" "demo"
 do
 	# Make the site dir if it doesn't already exist
 	mkdir -p ./deployments/$i
