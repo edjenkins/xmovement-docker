@@ -4,6 +4,7 @@ read -p 'Which branch do you want to checkout (e.g. release): ' branch
 read -p 'Fetch deployment? (y/n): ' fetchDeployment
 read -p 'Fetch translations? (y/n): ' fetchTranslations
 read -p 'Remove containers (y/n): ' removeContainers
+read -p 'Clear deployments directory (y/n): ' removeExistingDeployments
 
 # Remove docker existing containers
 if [ "$removeContainers" = "y" ] || [ "$removeContainers" = "" ]
@@ -21,7 +22,11 @@ if [ "$branch" = "" ]
 fi
 
 # Remove all existing sites files from the workspace
-rm -rf ./deployments/*
+if [ "$removeExistingDeployments" = "y" ] || [ "$removeExistingDeployments" = "" ]
+  then
+    echo "Wiping deployments directory..."
+    rm -rf ./deployments/*
+fi
 
 # Copy required init scrips
 cp ./scripts/* ./deployments
