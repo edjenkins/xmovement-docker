@@ -18,26 +18,6 @@ stanley.launchspot.co.uk {
 	errors /var/log/caddy/error.log
 }
 
-c4d.launchspot.co.uk {
-
-	root /var/www/create4dementia/public
-	tls create4dementia@launchspot.co.uk
-
-	fastcgi / php-fpm:9000 php {
-		index index.php
-	}
-
-	rewrite {
-		if {path} not_has /wss
-		r .*
-		ext /
-		to /index.php?{query}
-	}
-
-	log /var/log/caddy/access.log
-	errors /var/log/caddy/error.log
-}
-
 demo.eventmovement.co.uk {
 
 	root /var/www/demo/public
