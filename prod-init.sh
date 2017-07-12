@@ -10,14 +10,14 @@ read -p 'Clear deployments directory (y/n): ' removeExistingDeployments
 if [ "$removeContainers" = "y" ] || [ "$removeContainers" = "" ]
   then
     echo "Removing containers..."
-    docker-compose -f production-docker-compose.yml stop
-    docker-compose -f production-docker-compose.yml rm -f
+    #docker-compose -f production-docker-compose.yml stop
+    #docker-compose -f production-docker-compose.yml rm -f
 fi
 
 # If no branch is set then default to a specific branch
 if [ "$branch" = "" ]
   then
-    echo "No branch selected defaulting to `release` branch..."
+    echo "No branch selected defaulting to release branch..."
 	  branch="release"
 fi
 
@@ -32,7 +32,7 @@ fi
 cp ./scripts/* ./deployments
 
 # Loop through sites
-for i in "master" "citylit" "create4dementia" "stanley" "ssc" "demo"
+for i in "master" "citylit" "create4dementia" "stanley" "ssc" "vfne" # "demo"
 do
 	# Make the site dir if it doesn't already exist
 	mkdir -p ./deployments/$i
@@ -69,6 +69,6 @@ do
 done
 
 # Rebuild and launch docker containers
-docker-compose -f production-docker-compose.yml build # --no-cache
+#docker-compose -f production-docker-compose.yml build # --no-cache
 docker-compose -f production-docker-compose.yml up -d
 docker-compose -f production-docker-compose.yml logs -f --tail 100 workspace

@@ -1,4 +1,10 @@
+# EventMovement
 * * * * * php /var/www/citylit/artisan schedule:run >> /dev/null 2>&1
+* * * * * php /var/www/demo/artisan schedule:run >> /dev/null 2>&1
+* * * * * php /var/www/master/artisan schedule:run >> /dev/null 2>&1
+* * * * * php /var/www/ssc/artisan schedule:run >> /dev/null 2>&1
+# * * * * * php /var/www/vfne/artisan schedule:run >> /dev/null 2>&1
 
-# Custom cron
-# * * * * * root echo "Every Minute" > /var/log/cron.log 2>&1
+# Launchspot
+* * * * * php /var/www/create4dementia/artisan schedule:run >> /dev/null 2>&1
+* * * * * php /var/www/stanley/artisan schedule:run >> /dev/null 2>&1

@@ -20,7 +20,7 @@ stanley.launchspot.co.uk {
 
 demo.eventmovement.co.uk {
 
-	root /var/www/demo/public
+	root /var/www/vfne/public
 	tls demo@eventmovement.co.uk
 
 	fastcgi / php-fpm:9000 php {
@@ -96,6 +96,26 @@ create.eventmovement.co.uk {
 
 	log /var/log/caddy/access.log
 	errors /var/log/caddy/error.log
+}
+
+vfne.eventmovement.co.uk {
+
+        root /var/www/vfne/public
+        tls vfne@eventmovement.co.uk
+
+        fastcgi / php-fpm:9000 php {
+                index index.php
+        }
+
+        rewrite {
+                if {path} not_has /wss
+                r .*
+                ext /
+                to /index.php?{query}
+        }
+
+        log /var/log/caddy/access.log
+        errors /var/log/caddy/error.log
 }
 
 citylit.eventmovement.co.uk {
