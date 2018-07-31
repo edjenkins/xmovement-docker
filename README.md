@@ -1,4 +1,4 @@
-# XMovement
+# XMovement Docker
 
 > This repository contains the Docker (laradock) configuration for the [XMovement](https://github.com/edjenkins/xmovement) framework along with a set of scripts for development and deployment of the system.
 
