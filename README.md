@@ -1,7 +1,22 @@
-# Getting Started
+# XMovement Docker
 
-## Required files
-The following files are ignored from the repo because they contain private keys, please obtain copies from the main contributor.
+> This repository contains the Docker (laradock) configuration for the [XMovement](https://github.com/edjenkins/xmovement) framework along with a set of scripts for development and deployment of the system.
+
+> Developed at Open Lab, Newcastle University as an open-source project to support new and upcoming research projects.
+
+## Contributors
+| Name | Contribution | Contact |
+| --- | --- | --- |
+| `Edward Jenkins` | `Lead developer` | [edjenkins.co.uk](https://edjenkins.co.uk), [@edjenkins91](https://twitter.com/edjenkins91)|
+
+## Associated Repositories
+- [xmovement](https://github.com/edjenkins/xmovement)
+
+
+## Getting Started
+
+### Required files
+The following files are not included in this repository because they contain private keys, please obtain copies from the main contributor.
 
 `laradock/.env`
 
@@ -9,16 +24,22 @@ The following files are ignored from the repo because they contain private keys,
 
 ## Development
 
-All development changes should be made in the xmovement directory.
+Changes to the framework should be made in the 'xmovement' directory and committed to the main XMovement [repository](https://github.com/edjenkins/xmovement).
+
 The deployment package and translation files should be cloned into the appropriate directories.
 
-`deployment -> /packages/deployment`
+```
+# https://github.com/edjenkins/xmovement-deployments
+deployment -> /packages/deployment
+```
 
+```
+# https://github.com/edjenkins/xmovement-translations
 `translations -> /resources/lang`
+```
 
-#### Switching deployment (during development)
-
-Simply run the switch.sh script in the root of the project and follow the instructions given.
+## Switching deployments
+Run the 'switch.sh' script in the root of the project and follow the instructions given.
 
 
 ## Adding a deployment
@@ -34,3 +55,7 @@ Add the name of the project to the initialisation loop in the init.sh and prod-i
 
 __Repositories -__
 Create a branch with the project name for the translation files and deployment specific files.
+
+
+## Contributing
+Please feel free to pull the code and add to it where you see fit. If you do anything interesting tweet me [@edjenkins91](https://twitter.com/edjenkins91)
